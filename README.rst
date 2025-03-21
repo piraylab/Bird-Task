@@ -80,15 +80,10 @@ Running the Task
 
 **Local testing**:
 
-conda activate nivturk (activate virtual env)
-cd task_folder_name
-(for more detail on Flask server: https://nivlab.github.io/nivturk/docs/basic-usage/development/)
-export FLASK_APP=app.py
-export FLASK_ENV=development
-export FLASK_RUN_PORT=9999
-flask run --host=0.0.0.0 
+Visit Nivturk user manual (Developing experiments): https://nivlab.github.io/nivturk/docs/basic-usage/development/)
 
 **Online deployment**:
+
 Visit Nivturk user manual (Serving experiments): https://nivlab.github.io/nivturk/docs/basic-usage/serving/
 
 Data Structure
