@@ -54,6 +54,7 @@ Clearly document the directory structure, describing the main files and their pu
     ├── data/ (Directory where participant data are saved)
     ├── metadata/ (Directory for metadata files)
     ├── reject/ (Directory for rejected data files)
+    ├── analysis_code/ (Contains code for raw data extraction and preprocesssing)
     ├── README.rst
     └── requirements.txt 
 
