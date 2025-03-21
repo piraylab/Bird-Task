@@ -126,4 +126,4 @@ If you encounter issues or bugs, have questions, or wish to request new features
 License
 -------
 
-TO BE ADDED
+Reference 2024 paper
