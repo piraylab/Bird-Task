@@ -22,11 +22,10 @@ Setup and Installation
 - Gunicorn
 - Numpy
 
+This task is developed using jspsych library. Please refer to https://www.jspsych.org/latest/ for detailed function explanation. 
 Additionally, this task uses the NivTurk platform for online behavioral experiments. For detailed installation instructions and the user manual on how to develop and serve experiments, please refer to the official NivTurk documentation: https://nivlab.github.io/nivturk/
 
 **Installation steps**:
-
-Provide clear, step-by-step instructions for setup::
 
   git clone https://github.com/piraylab/Bird-Task-Demo.git
   cd Bird-Task-Demo
@@ -44,6 +43,8 @@ Clearly document the directory structure, describing the main files and their pu
     │   ├── app.ini (Contains configuration settings; toggle debug mode, and alter CODE_SUCCESS and CODE_REJECT according to Prolific settings)
     │   ├── static/
     │   │   ├── img/ (Contains images used in the task)
+    │   │   ├── js/
+    │   │   ├── lib/ (Contains Jspsych library)
     │   │   ├── mine/ (Contains files for task design, comprehension checks, and instructions)
     │   │   ├── new/ (Contains additional questionnaires)
     │   │   ├── rpm/ (Contains Raven's Progressive Matrices task files)
