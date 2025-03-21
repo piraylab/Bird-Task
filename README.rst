@@ -17,16 +17,20 @@ Setup and Installation
 
 **Requirements**:
 
-List dependencies such as Python version, required packages, JavaScript frameworks, or external libraries.
+- Python (version >= 3.6)
+- Flask==1.1.2
+- Gunicorn
+- Numpy
+
+Additionally, this task uses the NivTurk platform for online behavioral experiments. For detailed installation instructions and the user manual on how to develop and serve experiments, please refer to the official NivTurk documentation: https://nivlab.github.io/nivturk/
 
 **Installation steps**:
 
 Provide clear, step-by-step instructions for setup::
 
-  git clone https://github.com/your_username/your_task_repo.git
-  cd your_task_repo
+  git clone https://github.com/piraylab/Bird-Task-Demo.git
+  cd Bird-Task-Demo
   pip install -r requirements.txt
-
 
 Task Structure
 --------------
@@ -76,12 +80,16 @@ Running the Task
 
 **Local testing**:
 
-Instructions on how to run the task locally for development or testing purposes.
+conda activate nivturk (activate virtual env)
+cd task_folder_name
+(for more detail on Flask server: https://nivlab.github.io/nivturk/docs/basic-usage/development/)
+export FLASK_APP=app.py
+export FLASK_ENV=development
+export FLASK_RUN_PORT=9999
+flask run --host=0.0.0.0 
 
 **Online deployment**:
-
-Guidelines for deploying the task online (e.g., GitHub Pages, Heroku).
-
+Visit Nivturk user manual (Serving experiments): https://nivlab.github.io/nivturk/docs/basic-usage/serving/
 
 Data Structure
 --------------
