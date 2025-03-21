@@ -90,29 +90,25 @@ Visit Nivturk user manual (Serving experiments): https://nivlab.github.io/nivtur
 Data Structure
 --------------
 
-**Output data**:
+Participant data is initially saved as JSON files containing detailed trial-level information. After processing, data are structured into clearly formatted CSV files containing the following variables:
 
-Clearly describe the format of data collected from participants (CSV, JSON) and each key variable:
-
-- Participant identifiers (``subjectkey``, ``workerId``)
-- Demographics (``age``, ``sex``, ``race``)
-- Response variables (``reaction_time``, ``choices``)
-- Questionnaire data (BIS, AUDIT, GAD, PHQ)
-
-Provide an example data file and explain each column clearly.
-
+- **Participant identifiers**: `subId`, `workerId`
+- **Trial details**: `block`, `trial`, `bird_position`, `bag_position`, `bucket_position`, `completed`, `stayed`
+- **Task parameters**: `randomized` (record the order of blocks, indicating combination of volatility and stochasticity)
+- **Response metrics**: `reaction_time`, positional data
+- **Survey and Questionnaire data**: Individual questionnaire items (e.g., `bis_Q01`, `audit_Q02`, etc.), demographic information (`demo_age`, `demo_sex`, `demo_race`), and calculated total scores (e.g., `bis_total_score`, `audit_total_score`).
 
 Data Analysis
--------------
+--------------
 
-**Example scripts**:
+Data analysis involves scripts provided for processing raw JSON data and preparing them for analysis. Python scripts (`csv_edit_toolbox_bird.py`, Jupyter notebooks `data_extraction.ipynb`, and `csv_edit.ipynb`) perform:
 
-Provide or link to scripts for preliminary data analysis.
+- Extraction and cleaning of trial-level data, computation of bucket positions and catch accuracy.
+- Calculation of total scores from psychological questionnaires and handling of inattentive responses.
+- Merging and cleaning of demographic data (e.g., age, gender, ethnicity).
+- Data visualization for exploratory analysis of trial responses, behavioral patterns, and survey outcomes using matplotlib and seaborn.
 
-**Recommended analyses**:
-
-Briefly discuss recommended analytical approaches or cite relevant resources.
-
+Example analysis includes plotting individual trial data to observe participant behavior across task conditions and summarizing questionnaire responses to assess psychological correlates of task performance.
 
 Customization
 -------------
@@ -123,22 +119,16 @@ Guide users on how to modify or extend the task to fit their own experimental de
 Ethical Considerations
 ----------------------
 
-Remind users to obtain appropriate ethical approvals (IRB) if adapting the task for research involving human participants.
+Researchers adapting this task for their studies should ensure that they obtain appropriate ethical approvals (e.g., Institutional Review Board, IRB) before collecting data involving human participants. It is important to clearly communicate task details, potential risks, and benefits to participants during the consent process.
 
 
-Contributing and Issues
------------------------
+Reporting Issues
+----------------
 
-**Contribution guidelines**:
-
-Instructions for contributing improvements or fixes.
-
-**Reporting issues**:
-
-Explain how users can report bugs, ask questions, or request new features.
+If you encounter issues or bugs, have questions, or wish to request new features, please report these directly by opening an issue or commenting in the GitHub repository for this task.
 
 
 License
 -------
 
-State the license under which your task is released (e.g., MIT, GPL), clarifying how it can be used, modified, or distributed.
+TO BE ADDED
