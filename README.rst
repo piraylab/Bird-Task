@@ -28,7 +28,9 @@ Additionally, this task uses the NivTurk platform for online behavioral experime
 **Installation steps**:
 
   git clone https://github.com/piraylab/Bird-Task-Demo.git
+
   cd Bird-Task-Demo
+
   pip install -r requirements.txt
 
 Task Structure
