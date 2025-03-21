@@ -111,12 +111,6 @@ Data analysis involves scripts provided for processing raw JSON data and prepari
 
 Example analysis includes plotting individual trial data to observe participant behavior across task conditions and summarizing questionnaire responses to assess psychological correlates of task performance.
 
-Customization
--------------
-
-Guide users on how to modify or extend the task to fit their own experimental designs, including stimuli, blocks, conditions, or questionnaires.
-
-
 Ethical Considerations
 ----------------------
 
