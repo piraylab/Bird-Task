@@ -1,4 +1,4 @@
-Project Title
+Bird Task 
 =============
 
 Project Overview
@@ -6,12 +6,11 @@ Project Overview
 
 **Brief introduction**:
 
-Explain the purpose, context, and general structure of the online task.
+The Bird Task aims to investigate human adaptive learning under uncertainty by systematically manipulating two types of environmental noise: volatility (random changes in a latent cause) and stochasticity (random, moment-to-moment observation noise). Participants observe outcomes influenced by both sources of noise and must adapt their predictions accordingly. The general structure of the task involves participants controlling a bucket to catch bags dropped by an invisible bird. The bird’s movement represents volatility, and the variability in where bags land, due to wind conditions, represents stochasticity. The task is structured into four blocks following a 2x2 factorial design, each block systematically varying levels of volatility and stochasticity to measure their distinct influences on learning rate adjustments.
 
 **Intended usage**:
 
-Clearly state who might benefit from this task and how they might adapt it for their experiments.
-
+This task is intended for researchers interested in human learning and decision-making under uncertainty, especially those studying reinforcement learning, Bayesian inference, and computational psychiatry. Researchers can reuse and adapt this task to examine how participants discriminate different sources of uncertainty, measure individual differences in adaptive learning, or investigate maladaptive learning patterns associated with psychiatric conditions such as anxiety. The task design allows precise control over noise characteristics and provides data amenable to both model-agnostic and model-based analyses, facilitating investigations of the underlying computational processes in adaptive learning.
 
 Setup and Installation
 ----------------------
@@ -36,19 +35,40 @@ Task Structure
 
 Clearly document the directory structure, describing the main files and their purpose::
 
-  your_task_repo/
-  ├── scripts/
-  │   └── experiment_logic.js
-  ├── templates/
-  │   └── task_template.html
-  ├── data_templates/
-  │   └── example_data.csv
-  ├── README.rst
-  └── requirements.txt
+  Bird-Task-Demo/
+    ├── app/
+    │   ├── app.ini (Contains configuration settings; toggle debug mode, and alter CODE_SUCCESS and CODE_REJECT according to Prolific settings)
+    │   ├── static/
+    │   │   ├── img/ (Contains images used in the task)
+    │   │   ├── mine/ (Contains files for task design, comprehension checks, and instructions)
+    │   │   ├── new/ (Contains additional questionnaires)
+    │   │   ├── rpm/ (Contains Raven's Progressive Matrices task files)
+    │   │   └── surveys/ (Contains individual survey files in JavaScript)
+    │   └── templates/
+    │       └── experiment.html (Main HTML file running the task)
+    ├── data/ (Directory where participant data are saved)
+    ├── metadata/ (Directory for metadata files)
+    ├── reject/ (Directory for rejected data files)
+    ├── README.rst
+    └── requirements.txt 
 
 **Task flow**:
 
-Describe how the task is structured, including blocks, trials, stimuli presentation, participant interaction, and questionnaires.
+Participants complete the task in four blocks, each consisting of 50 trials. Each trial involves moving a bucket horizontally to catch bags dropped by an invisible bird. Participants cannot move the bucket once the bag appears. The bag’s drop position varies according to two factors:
+
+- **Volatility**: Represents the bird's unpredictable horizontal movement (diffusion noise).
+- **Stochasticity**: Represents the randomness due to external factors (observation noise, e.g., wind conditions).
+
+The task systematically manipulates these two factors across blocks in a 2x2 factorial design:
+
+1. Low volatility, low stochasticity
+2. Low volatility, high stochasticity
+3. High volatility, low stochasticity
+4. High volatility, high stochasticity
+
+Participants are unaware of the exact volatility and stochasticity levels. Each block begins with an announcement about a new bird and new wind conditions. Participants must use previous bag-drop locations to infer and adjust to the underlying factors, updating their predictions accordingly.
+
+Following the main task, participants complete additional questionnaires and comprehension checks included in the experiment. (Not shown in the demos for simplicity)
 
 
 Running the Task
