@@ -15,7 +15,7 @@ This task is intended for researchers interested in human learning and decision-
 Setup and Installation
 ----------------------
 
-**Requirements**:
+**Requirements**: (for the python script processing data)
 
 - Python (version >= 3.6)
 - Flask==1.1.2
@@ -82,6 +82,10 @@ Following the main task, participants complete additional questionnaires and com
 Running the Task
 ----------------
 
+Click on experiment.html
+
+In the format of Nivturk and can use Nivturk manual for online publishing.
+
 **Local testing**:
 
 Visit Nivturk user manual (Developing experiments): https://nivlab.github.io/nivturk/docs/basic-usage/development/)
@@ -112,12 +116,6 @@ Data analysis involves scripts provided for processing raw JSON data and prepari
 - Data visualization for exploratory analysis of trial responses, behavioral patterns, and survey outcomes using matplotlib and seaborn.
 
 Example analysis includes plotting individual trial data to observe participant behavior across task conditions and summarizing questionnaire responses to assess psychological correlates of task performance.
-
-Ethical Considerations
-----------------------
-
-Researchers adapting this task for their studies should ensure that they obtain appropriate ethical approvals (e.g., Institutional Review Board, IRB) before collecting data involving human participants. It is important to clearly communicate task details, potential risks, and benefits to participants during the consent process.
-
 
 Reporting Issues
 ----------------
