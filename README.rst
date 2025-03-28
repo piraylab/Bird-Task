@@ -15,7 +15,7 @@ This task is intended for researchers interested in human learning and decision-
 Setup and Installation
 ----------------------
 
-**Requirements**:
+**Requirements**: (for the python script processing data)
 
 - Python (version >= 3.6)
 - Flask==1.1.2
@@ -28,7 +28,9 @@ Additionally, this task uses the NivTurk platform for online behavioral experime
 **Installation steps**:
 
   git clone https://github.com/piraylab/Bird-Task-Demo.git
+
   cd Bird-Task-Demo
+
   pip install -r requirements.txt
 
 Task Structure
@@ -80,6 +82,10 @@ Following the main task, participants complete additional questionnaires and com
 Running the Task
 ----------------
 
+Click on experiment.html
+
+In the format of Nivturk and can use Nivturk manual for online publishing.
+
 **Local testing**:
 
 Visit Nivturk user manual (Developing experiments): https://nivlab.github.io/nivturk/docs/basic-usage/development/)
@@ -111,25 +117,13 @@ Data analysis involves scripts provided for processing raw JSON data and prepari
 
 Example analysis includes plotting individual trial data to observe participant behavior across task conditions and summarizing questionnaire responses to assess psychological correlates of task performance.
 
-Customization
--------------
-
-Guide users on how to modify or extend the task to fit their own experimental designs, including stimuli, blocks, conditions, or questionnaires.
-
-
-Ethical Considerations
-----------------------
-
-Researchers adapting this task for their studies should ensure that they obtain appropriate ethical approvals (e.g., Institutional Review Board, IRB) before collecting data involving human participants. It is important to clearly communicate task details, potential risks, and benefits to participants during the consent process.
-
-
 Reporting Issues
 ----------------
 
 If you encounter issues or bugs, have questions, or wish to request new features, please report these directly by opening an issue or commenting in the GitHub repository for this task.
 
 
-License
+Reference
 -------
 
-TO BE ADDED
+Please cite 2024 paper if use this task
