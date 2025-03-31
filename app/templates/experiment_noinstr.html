@@ -14,15 +14,15 @@
   <link href="../static/lib/jspsych-6.3.1/css/jspsych.css" rel="stylesheet" type="text/css"></link>
 
   <!-- New plug-ins -->
-  <script src="../static/lib/jspsych-6.3.1/plugins/jspsych-survey-multi-choice.js" type="text/javascript"></script>
+  <!-- <script src="../static/lib/jspsych-6.3.1/plugins/jspsych-survey-multi-choice.js" type="text/javascript"></script>
   <script src="../static/lib/jspsych-6.3.1/plugins/jspsych-survey-likert.js" type="text/javascript"></script>  
   <script src="../static/lib/jspsych-6.3.1/plugins/jspsych-survey-multi-select.js" type="text/javascript"></script>
-  <script src="../static/lib/jspsych-6.3.1/plugins/jspsych-survey-text.js" type="text/javascript"></script>
+  <script src="../static/lib/jspsych-6.3.1/plugins/jspsych-survey-text.js" type="text/javascript"></script> -->
 
   <!-- Load NivTurk plug-ins -->
-  <script src="../static/js/jspsych-survey-demo.js" type="text/javascript"></script>
+  <!-- <script src="../static/js/jspsych-survey-demo.js" type="text/javascript"></script> -->
   <script src="../static/js/nivturk-plugins.js" type="text/javascript"></script>
-  <script src="../static/js/jspsych-survey-template.js" type="text/javascript"></script>
+  <!-- <script src="../static/js/jspsych-survey-template.js" type="text/javascript"></script> -->
   <script src="../static/js/jspsych-screen-check.js"></script>
 
   <!-- Load RPM -->
@@ -39,15 +39,7 @@
   <script src="../static/mine/comprehension2.js" type="text/javascript"></script>
   <script src="../static/mine/termination.js" type="text/javascript"></script>
   <script src="../static/mine/instructions.js" type="text/javascript"></script>
-  <script src="../static/mine/rpm-experiment.js" type="text/javascript"></script>
-
-  <!-- Load questionnaires -->
-  <!-- <script src="../static/new/questionnaires.js" type="text/javascript"></script>
-  <script src="../static/new/questionnaires_add.js" type="text/javascript"></script>
-  <script src="../static/new/questionnaires2.js" type="text/javascript"></script>
-  <script src="../static/new/ybocs_instructions.js" type="text/javascript"></script> -->
-  <script src="../static/new/qs.js" type="text/javascript"></script>
-
+  <!-- <script src="../static/mine/rpm-experiment.js" type="text/javascript"></script> -->
 
   <meta charset="UTF-8">
   <style>
@@ -402,38 +394,38 @@
     type: 'instructions',
     pages: [
       '<p style="font-size:20px"<br><br>Thank you! You completed the game successfully.<br><br> </p>',
-    ], // You should now complete the questionnaires. <br><br>Please pay attention to the instrucions and statements. <br><br>We will process a <b>bonus</b> payment for you based on data quality checks.
+    ], 
     show_clickable_nav: true,
     button_label_previous: "Prev",
     button_label_next: "Next"
   }
-  var feedback2 = {
-    type: 'instructions',
-    pages: [
-      '<p style="font-size:20px"<br><br>Well Done! You completed the surveys successfully. <br><br> You should now complete a short puzzle quiz. </p>',
-    ],
-    show_clickable_nav: true,
-    button_label_previous: "Prev",
-    button_label_next: "Next"
-  }
-  var feedback3 = {
-    type: 'instructions',
-    pages:[
-      '<p style="font-size:20px" <br><br> Please now answer a couple of demographic questions. </p>'
-    ],
-    show_clickable_nav: true,
-    button_label_previous: "Prev",
-    button_label_next: "Next"
-  }
-  var feedback4 = {
-    type: 'instructions',
-    pages: [
-      '<p style="font-size:20px"<br><br> Thank you for your patience and participation. <br><br> We will process a bonus payment for you based on your performance. <br><br> There will be a follow-up session in a month. <br><br> You will be contacted by Prolific with more details. </p>',
-    ],
-    show_clickable_nav: true,
-    button_label_previous: "Prev",
-    button_label_next: "Next"
-  }
+  // var feedback2 = {
+  //   type: 'instructions',
+  //   pages: [
+  //     '<p style="font-size:20px"<br><br>Well Done! You completed the surveys successfully. <br><br> You should now complete a short puzzle quiz. </p>',
+  //   ],
+  //   show_clickable_nav: true,
+  //   button_label_previous: "Prev",
+  //   button_label_next: "Next"
+  // }
+  // var feedback3 = {
+  //   type: 'instructions',
+  //   pages:[
+  //     '<p style="font-size:20px" <br><br> Please now answer a couple of demographic questions. </p>'
+  //   ],
+  //   show_clickable_nav: true,
+  //   button_label_previous: "Prev",
+  //   button_label_next: "Next"
+  // }
+  // var feedback4 = {
+  //   type: 'instructions',
+  //   pages: [
+  //     '<p style="font-size:20px"<br><br> Thank you for your patience and participation. <br><br> We will process a bonus payment for you based on your performance. <br><br> There will be a follow-up session in a month. <br><br> You will be contacted by Prolific with more details. </p>',
+  //   ],
+  //   show_clickable_nav: true,
+  //   button_label_previous: "Prev",
+  //   button_label_next: "Next"
+  // }
 
   var fullscr = [];
   fullscr.push({
@@ -441,26 +433,6 @@
     fullscreen_mode: true,
   });
 
-  //------------------------------------//
-  // Mental health resources 
-  //------------------------------------//
-  var mental_health_resources = `
-    <div style="max-width: 800px; margin: auto; padding: 20px; background-color: #f8f8f8; border: 1px solid #ccc; border-radius: 10px;">
-    <body>
-      <p style="text-align: left;">This study includes questions related to mental health. The experimenters are not clinicians and not in a position to diagnose any disorders or offer medical advice. If the questions trouble you, we urge you to seek further advice or information from healthcare professionals. Here, we provide you with a list of mental health resources that you might find useful. </p>
-      
-      <h3>Help for Mental Illnesses</h3>
-      <p style="text-align: left;">National Institute of Mental Health provides a list of resources for mental health conditions. <br>https://www.nimh.nih.gov/health/find-help</p>
-
-      <h3>National Alliance on Mental Illness</h3>
-      <p style="text-align: left;">Provides free support groups and classes for those living with mental health conditions and their families in California. <br>https://namica.org/get-help/</p>
-
-      <h3>988 Suicide and Crisis Lifeline - 988 for both calls and text messages – 24/7 on call</h3>
-      <p style="text-align: left;">The 988 Suicide and Crisis Lifeline (formerly known as the National Suicide Prevention Lifeline) provides free and confidential emotional support to people in suicidal crisis or emotional distress 24 hours a day, 7 days a week, across the United States. The Lifeline is comprised of a national network of over 200 local crisis centers, combining custom local care and resources with national standards and best practices. The new, shorter phone number makes it easier for people to remember and access mental health crisis services (though the previous 1 (800) 273-8255 number will continue to function indefinitely) and represents a continued commitment to those in crisis. <br>https://988lifeline.org</p>
-
-      <p><i>If you are finished, please press the <b>Finish</b> button.</i></p>
-    </body>
-  `;
   var finish = {
     type: 'instructions',
     pages: [mental_health_resources],
@@ -468,47 +440,6 @@
     button_label_next: "Finish"
   };
 
-  //------------------------------------//
-  // Conditional suicide pop-up
-  //------------------------------------//
-  var popup_content = `
-    <div style="max-width: 800px; margin: auto; padding: 20px; background-color: #f8f8f8; border: 1px solid #ccc; border-radius: 10px;">
-    <body>
-      <p style="text-align: left;">While the experimenters are not clinicians and cannot provide diagnoses or medical advice, some of your responses may indicate some levels of emotional distress or suicidal thoughts. We strongly urge you to seek further advice or information from qualified healthcare professionals for appropriate support. Please consider utilizing the following resources, which may be beneficial to you:</p>
-      
-      <h3>988 Suicide and Crisis Lifeline - 988 for both calls and text messages – 24/7 on call</h3>
-      <p style="text-align: left;">The 988 Suicide and Crisis Lifeline (formerly known as the National Suicide Prevention Lifeline) provides free and confidential emotional support to people in suicidal crisis or emotional distress 24 hours a day, 7 days a week, across the United States. The Lifeline is comprised of a national network of over 200 local crisis centers, combining custom local care and resources with national standards and best practices. The new, shorter phone number makes it easier for people to remember and access mental health crisis services (though the previous 1 (800) 273-8255 number will continue to function indefinitely) and represents a continued commitment to those in crisis. <br>https://988lifeline.org</p>
-
-      <h3>NIMH Suicide Prevention</h3>
-      <p style="text-align: left;">National Institute of Mental Health provides several useful resources related to suicide prevention and mental distress. <br>https://www.nimh.nih.gov/health/topics/suicide-prevention</p>
-
-      <h3>Suicide Prevention Resource Center</h3>
-      <p style="text-align: left;">Provides multiple approaches and resources for suicide prevention. <br>https://sprc.org</p>
-
-      <h3>American Foundation for Suicide Prevention</h3>
-      <p style="text-align: left;">Provides crisis mental health services. <br>https://afsp.org/im-having-thoughts-of-suicide</p>
-    </body>
-  `;
-  var suicide_popup = {
-    type: 'instructions',
-    pages: [popup_content],
-    show_clickable_nav: true,
-    button_label_next: "I understand."
-  };
-  var conditional_suicide_popup = {
-    timeline: [suicide_popup],
-    conditional_function: function() {
-      // Access the data from the previous trial
-      // For example, let's say you're checking if a certain response was given:
-      var last_trial_data = jsPsych.data.get().last(1).values()[0];
-      // Check a condition based on the last trial data
-      if (last_trial_data.responses.Q09 != '1') {
-        return true; // Show the suicide_popup if the condition is met
-      } else {
-        return false; // Do not show the suicide_popup if the condition is not met
-      }
-    }
-  };
 
   //------------------------------------//
   // Preload images
@@ -605,51 +536,8 @@
   // timeline = timeline.concat(feedback0);
   // timeline = timeline.concat(instructions_loop);
   timeline = timeline.concat(trials);
-  timeline = timeline.concat(feedback1);
-
-  // // questionnaires
-  // timeline = timeline.concat(gad7);
-  // timeline = timeline.concat(attentionCheck);
-  // timeline = timeline.concat(gbq21);
-  // timeline = timeline.concat(attentionCheck);
-  // timeline = timeline.concat(pswq8);
-  // timeline = timeline.concat(attentionCheck);
-  // timeline = timeline.concat(pvp9);
-  // timeline = timeline.concat(attentionCheck);
-  // timeline = timeline.concat(cbs7);
-  // timeline = timeline.concat(attentionCheck);
-
-  // timeline = timeline.concat(feedback_p1)
-  // timeline = timeline.concat(ius12);
-  // timeline = timeline.concat(attentionCheck);
-  // timeline = timeline.concat(cape15);
-  // timeline = timeline.concat(attentionCheck);
-  // timeline = timeline.concat(eat26);
-  // timeline = timeline.concat(attentionCheck);
-  // timeline = timeline.concat(audit10);
-  // timeline = timeline.concat(attentionCheck);
-
-  // timeline = timeline.concat(feedback_p2)
-  // timeline = timeline.concat(bis8);
-  // timeline = timeline.concat(attentionCheck);
-  // timeline = timeline.concat(yboc_cb10);
-  // timeline = timeline.concat(attentionCheck);
-  // timeline = timeline.concat(dass21);
-  // timeline = timeline.concat(attentionCheck);
-  // timeline = timeline.concat(lbt2);
-  // timeline = timeline.concat(phq9);
-  // // suicide pop-up resouces conditioned on phq9 responses
-  // timeline = timeline.concat(conditional_suicide_popup);
-
-  // // NIH required questionnaire
-  // timeline = timeline.concat(dsm23)
-  // timeline = timeline.concat(whodas12)
-
-  // timeline = timeline.concat(feedback2);
-  // timeline = timeline.concat(rpm_timeline);
-  timeline = timeline.concat(feedback3);
-  timeline = timeline.concat(demographics);  
-  timeline = timeline.concat(feedback4);
+  timeline = timeline.concat(feedback1); 
+  // timeline = timeline.concat(feedback4);
   timeline = timeline.concat(finish);
   
 
