@@ -47,10 +47,7 @@ Clearly document the directory structure, describing the main files and their pu
     │   │   ├── img/ (Contains images used in the task)
     │   │   ├── js/
     │   │   ├── lib/ (Contains Jspsych library)
-    │   │   ├── mine/ (Contains files for task design, comprehension checks, and instructions)
-    │   │   ├── new/ (Contains additional questionnaires)
-    │   │   ├── rpm/ (Contains Raven's Progressive Matrices task files)
-    │   │   └── surveys/ (Contains individual survey files in JavaScript)
+    │   │   ├── task/ (Contains files for task design, comprehension checks, and instructions)
     │   └── templates/
     │       └── experiment.html (Main HTML file running the task)
     ├── data/ (Directory where participant data are saved)
