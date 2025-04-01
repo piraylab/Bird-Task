@@ -1,14 +1,96 @@
 import os
-import pandas as pd
-# Metadata time format
-from datetime import datetime
-# Data saving
-import pickle
-import os
-import csv
-import matplotlib.pyplot as plt
-import seaborn as sns
 import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+
+def model_neutral_lr(df):
+    """
+    Calculate per-block learning rates for each subject from a CSV file containing all participant data.
+
+    The CSV file should contain at least the following columns:
+      - subId           : subject identifier
+      - trial           : trial number
+      - block           : block identifier (e.g., 1, 2, 3, 4)
+      - randomized      : randomized sequence order for blocks
+      - bag_position    : bag position for each trial
+      - bucket_position : bucket position for each trial
+
+    For each subject, this function:
+      1. Groups the data by block.
+      2. For each block:
+         - Sorts the trials by the 'trial' column.
+         - Computes the update: Δbucket = bucket_position[t+1] - bucket_position[t].
+         - Computes the prediction error: PE = bag_position[t] - bucket_position[t] (for t=1...N-1).
+         - Fits a linear regression: Δbucket = α + β * PE.
+         - Extracts β as the learning rate.
+         - Records the block's randomized order (using the first value from the 'randomized' column).
+      3. Sorts the block results based on the randomized value.
+      4. Returns a dictionary per subject with:
+             'subId': subject ID,
+             'block': list of block indices (0-indexed, e.g., [0,1,2,3]),
+             'randomized': list of randomized sequence values,
+             'learning_rate': list of per-block learning rates.
+
+    Parameters:
+      df (dataframe): Dataframe containing all subject trial data.
+
+    Returns:
+      list of dict: Each dict corresponds to one subject's results.
+    """
+    subject_results = []
+
+    # Group data by subject ID
+    for sub_id, sub_df in df.groupby('subId'):
+        per_block = []  # to store (block, randomized, learning_rate) for each block
+
+        # Group data by block within the subject
+        for block_id, block_df in sub_df.groupby('block'):
+            # Ensure trials are in proper order
+            block_df = block_df.sort_values(by='trial')
+
+            # Get bucket and bag positions
+            bucket_pos = block_df['bucket_position'].values
+            bag_pos = block_df['bag_position'].values
+
+            # If there are fewer than 2 trials, we cannot compute a change
+            if len(bucket_pos) < 2:
+                lr_coeff = np.nan
+            else:
+                # Compute trial-to-trial bucket update
+                lr_update = bucket_pos[1:] - bucket_pos[:-1]
+                # Compute prediction error for each trial (except the last one)
+                lr_pred_error = bag_pos[:-1] - bucket_pos[:-1]
+
+                # Fit linear regression: Δbucket = α + β * (PE)
+                X = lr_pred_error.reshape(-1, 1)
+                y = lr_update
+                model = LinearRegression()
+                model.fit(X, y)
+                lr_coeff = model.coef_[0]
+
+            # Retrieve the randomized order value (assuming it's constant within a block)
+            randomized_val = block_df['randomized'].iloc[0]
+
+            per_block.append((block_id, randomized_val, lr_coeff))
+
+        # Sort the block results by the randomized order
+        per_block_sorted = sorted(per_block, key=lambda x: x[1])
+
+        # Extract sorted block ids, randomized values, and learning rates.
+        # Convert block id to 0-indexed: if block ids start at 1, subtract 1.
+        blocks_sorted = [int(block) - 1 if int(block) > 0 else int(block) for block, _, _ in per_block_sorted]
+        randomized_sorted = [rand for _, rand, _ in per_block_sorted]
+        learning_rates_sorted = [lr for _, _, lr in per_block_sorted]
+
+        subject_results.append({
+            'subId': sub_id,
+            'block': blocks_sorted,
+            'randomized': randomized_sorted,
+            'learning_rate': learning_rates_sorted
+        })
+
+    return subject_results
 
 
 # Observation visualization
@@ -79,17 +161,10 @@ if not os.path.exists(save_path):
 
 def serr(x, dim=0):
     """Calculate the standard error of the mean."""
+    x = np.asarray(x)  # Convert the input to a NumPy array
     s = np.std(x, axis=dim, ddof=1)  # Standard deviation
-    n = x.shape[dim]  # Number of samples
+    n = x.shape[dim]  # Number of samples along the given dimension
     return s / np.sqrt(n)
-
-def preprocess_effect_data(lr):
-    """Preprocess data for effect size calculation."""
-    transformation_matrix = np.array([[-1, -1, 1, 1], [-1, 1, -1, 1]]).T
-    f = np.dot(lr, transformation_matrix)
-    mf = np.mean(f, axis=0)
-    ef = serr(f)
-    return mf, ef, f[:, 0], f[:, 1]  # bs, bv
 
 def plot_bar(data_mean, data_se=None, ylabel='', xlabel='', legend_title='',
              title=None, ylim=None, show_legend=False, show_error=True, save_path=None):
@@ -127,35 +202,6 @@ def plot_bar(data_mean, data_se=None, ylabel='', xlabel='', legend_title='',
     if show_legend:
         ax.legend(title=legend_title, fontsize=LEGEND_FONTSIZE, title_fontsize=LEGEND_FONTSIZE)
 
-    ax.grid(False)
-    plt.tight_layout()
-
-    if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    plt.show()
-
-def plot_effect_size(mf, ef, bs, bv, save_path=None):
-    fig, ax = plt.subplots(figsize=(8, 3))
-    np.random.seed(42)
-
-    for bsi, bvi in zip(bs, bv):
-        y_coords = np.array([1, 2]) + np.random.randn(2) * 0.05
-        ax.plot([bsi, bvi], y_coords, color='gray', alpha=0.3, linewidth=0.5)
-        ax.scatter([bsi], [y_coords[0]], color='black', s=1)
-        ax.scatter([bvi], [y_coords[1]], color='black', s=1)
-
-    # Mean bars
-    ax.barh(0.7, mf[0], xerr=ef[0], color=EFFECT_COLORS[0], alpha=ALPHA_BAR, height=0.2, label='True Stochasticity')
-    ax.barh(2.3, mf[1], xerr=ef[1], color=EFFECT_COLORS[1], alpha=ALPHA_BAR, height=0.2, label='True Volatility')
-
-    # Aesthetics
-    ax.axvline(0, color='black', linestyle='--', linewidth=1)
-    ax.set_yticks([1, 2])
-    ax.set_yticklabels(['True \nStochasticity', 'True \nVolatility'], fontsize=LABEL_FONTSIZE)
-    ax.tick_params(axis='y', length=0)
-    ax.set_xlabel('Effect Size', fontsize=LABEL_FONTSIZE)
-    ax.set_xlim(XLIM_EFFECT)
-    ax.set_ylim([0.3, 2.7])
     ax.grid(False)
     plt.tight_layout()
 

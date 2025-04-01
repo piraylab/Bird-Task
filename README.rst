@@ -17,10 +17,10 @@ Setup and Installation
 
 **Requirements**: (for the python script processing data)
 
-- Python (version >= 3.6)
-- Flask==1.1.2
-- Gunicorn
-- Numpy
+- numpy
+- pandas
+- matplotlib
+- scikit-learn
 
 This task is developed using jspsych library. Please refer to https://www.jspsych.org/latest/ for detailed function explanation. 
 Additionally, this task uses the NivTurk platform for online behavioral experiments. For detailed installation instructions and the user manual on how to develop and serve experiments, please refer to the official NivTurk documentation: https://nivlab.github.io/nivturk/
@@ -79,9 +79,9 @@ Following the main task, participants complete additional questionnaires and com
 Running the Task
 ----------------
 
-Click on experiment.html
+Click on experiment.html to run the task. 
 
-In the format of Nivturk and can use Nivturk manual for online publishing.
+The task is set-up using the format of Nivturk for online publishing. Please refer to Nivturk manual for more details.
 
 **Local testing**:
 
@@ -100,19 +100,14 @@ Participant data is initially saved as JSON files containing detailed trial-leve
 - **Trial details**: `block`, `trial`, `bird_position`, `bag_position`, `bucket_position`, `completed`, `stayed`
 - **Task parameters**: `randomized` (record the order of blocks, indicating combination of volatility and stochasticity)
 - **Response metrics**: `reaction_time`, positional data
-- **Survey and Questionnaire data**: Individual questionnaire items (e.g., `bis_Q01`, `audit_Q02`, etc.), demographic information (`demo_age`, `demo_sex`, `demo_race`), and calculated total scores (e.g., `bis_total_score`, `audit_total_score`).
 
 Data Analysis
 --------------
 
-Data analysis involves scripts provided for processing raw JSON data and preparing them for analysis. Python scripts (`csv_edit_toolbox_bird.py`, Jupyter notebooks `data_extraction.ipynb`, and `csv_edit.ipynb`) perform:
+Data analysis involves scripts provided for processing raw JSON data and preparing them for analysis. Python scripts (Jupyter notebooks `data_extraction.ipynb`, `trial_analysis_toolbox.py`, and `trial_analysis.ipynb`) perform:
 
-- Extraction and cleaning of trial-level data, computation of bucket positions and catch accuracy.
-- Calculation of total scores from psychological questionnaires and handling of inattentive responses.
-- Merging and cleaning of demographic data (e.g., age, gender, ethnicity).
-- Data visualization for exploratory analysis of trial responses, behavioral patterns, and survey outcomes using matplotlib and seaborn.
-
-Example analysis includes plotting individual trial data to observe participant behavior across task conditions and summarizing questionnaire responses to assess psychological correlates of task performance.
+- Extraction and cleaning of trial-level data.
+- Data visualization for exploratory analysis of observation patterns, block-wise model neutral learning rate.
 
 Reporting Issues
 ----------------
@@ -123,4 +118,7 @@ If you encounter issues or bugs, have questions, or wish to request new features
 Reference
 -------
 
-Please cite 2024 paper if use this task
+If you use this task or associated code, please cite the following paper:
+
+Piray, P., Daw, N.D. Computational processes of simultaneous learning of stochasticity and volatility in humans. Nat Commun 15, 9073 (2024). https://doi-org.libproxy2.usc.edu/10.1038/s41467-024-53459-z
+
