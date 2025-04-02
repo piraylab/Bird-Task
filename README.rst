@@ -72,7 +72,7 @@ The task systematically manipulates these two factors across blocks in a 2x2 fac
 3. High volatility, low stochasticity
 4. High volatility, high stochasticity
 
-Participants are unaware of the exact volatility and stochasticity levels. Each block begins with an announcement about a new bird and new wind conditions. Participants must use previous bag-drop locations to infer and adjust to the underlying factors, updating their predictions accordingly.
+Participants are unaware of the exact volatility and stochasticity levels. Each block begins with an announcement about a new bird and new wind conditions. Participants must use previous bag-drop locations to infer and adjust to the underlying factors, updating their predictions accordingly. Instructions, demonstrations, and comprehension checks precede the main task.
 
 Running the Task
 ----------------
