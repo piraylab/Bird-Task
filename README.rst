@@ -36,7 +36,7 @@ Additionally, this task uses the NivTurk platform for online behavioral experime
 Task Structure
 --------------
 
-**File organization**:
+**File organization**::
 
   Bird-Task/
     ├── app/
