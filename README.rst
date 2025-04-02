@@ -40,7 +40,7 @@ Task Structure
 
 Clearly document the directory structure, describing the main files and their purpose::
 
-  Bird-Task-Demo/
+  Bird-Task/
     ├── app/
     │   ├── app.ini (Contains configuration settings; toggle debug mode, and alter CODE_SUCCESS and CODE_REJECT according to Prolific settings)
     │   ├── static/
