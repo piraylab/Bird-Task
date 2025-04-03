@@ -36,11 +36,9 @@ Additionally, this task uses the NivTurk platform for online behavioral experime
 Task Structure
 --------------
 
-**File organization**:
+**File organization**::
 
-Clearly document the directory structure, describing the main files and their purpose::
-
-  Bird-Task-Demo/
+  Bird-Task/
     ├── app/
     │   ├── app.ini (Contains configuration settings; toggle debug mode, and alter CODE_SUCCESS and CODE_REJECT according to Prolific settings)
     │   ├── static/
@@ -54,6 +52,7 @@ Clearly document the directory structure, describing the main files and their pu
     ├── metadata/ (Directory for metadata files)
     ├── reject/ (Directory for rejected data files)
     ├── analysis_code/ (Contains code for raw data extraction and preprocesssing)
+    ├── processed_data/ (Contains extracted data from raw .json data files)
     ├── README.rst
     └── requirements.txt 
 
@@ -71,10 +70,7 @@ The task systematically manipulates these two factors across blocks in a 2x2 fac
 3. High volatility, low stochasticity
 4. High volatility, high stochasticity
 
-Participants are unaware of the exact volatility and stochasticity levels. Each block begins with an announcement about a new bird and new wind conditions. Participants must use previous bag-drop locations to infer and adjust to the underlying factors, updating their predictions accordingly.
-
-Following the main task, participants complete additional questionnaires and comprehension checks included in the experiment. (Not shown in the demos for simplicity)
-
+Participants are unaware of the exact volatility and stochasticity levels. Each block begins with an announcement about a new bird and new wind conditions. Participants must use previous bag-drop locations to infer and adjust to the underlying factors, updating their predictions accordingly. Instructions, demonstrations, and comprehension checks precede the main task.
 
 Running the Task
 ----------------
@@ -82,14 +78,6 @@ Running the Task
 Click on experiment.html to run the task. 
 
 The task is set-up using the format of Nivturk for online publishing. Please refer to Nivturk manual for more details.
-
-**Local testing**:
-
-Visit Nivturk user manual (Developing experiments): https://nivlab.github.io/nivturk/docs/basic-usage/development/)
-
-**Online deployment**:
-
-Visit Nivturk user manual (Serving experiments): https://nivlab.github.io/nivturk/docs/basic-usage/serving/
 
 Data Structure
 --------------
