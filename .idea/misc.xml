@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="Black">
-    <option name="sdkName" value="Python 3.9 (bird_task_demo)" />
-  </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="bird" project-jdk-type="Python SDK" />
-</project>
