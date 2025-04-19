@@ -108,5 +108,5 @@ Reference
 
 If you use this task or associated code, please cite the following paper:
 
-Piray, P., Daw, N.D. Computational processes of simultaneous learning of stochasticity and volatility in humans. Nat Commun 15, 9073 (2024). https://doi-org.libproxy2.usc.edu/10.1038/s41467-024-53459-z
-
+Piray, P., Daw, N.D. Computational processes of simultaneous learning of stochasticity and volatility in humans. Nat Commun 15, 9073 (2024). 
+https://www.nature.com/articles/s41467-024-53459-z
